@@ -1,1 +1,1994 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#111827"
+  >
+
+  <title>LPJ PEMBELIAN</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      background:
+        linear-gradient(
+          135deg,
+          #111827,
+          #1f2937
+        );
+
+      color: white;
+
+      padding:
+        25px
+        18px;
+
+      text-align: center;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.12);
+    }
+
+    .logo {
+      width: 62px;
+      height: 62px;
+
+      margin: 0 auto 10px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 31px;
+    }
+
+    .header h1 {
+      margin: 0;
+
+      font-size: 25px;
+    }
+
+    .header p {
+      margin:
+        7px
+        0
+        0;
+
+      font-size: 13px;
+
+      opacity: .75;
+    }
+
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+
+      margin: auto;
+
+      padding:
+        18px;
+    }
+
+
+    /* =========================
+       MENU SIE
+    ========================= */
+
+    .menu-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 15px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .sie-card {
+
+      background: white;
+
+      border-radius: 18px;
+
+      padding:
+        25px
+        15px;
+
+      text-align: center;
+
+      cursor: pointer;
+
+      border:
+        2px solid
+        transparent;
+
+      box-shadow:
+        0 5px 18px
+        rgba(0,0,0,.06);
+
+      transition: .2s;
+
+    }
+
+    .sie-card:hover {
+      transform:
+        translateY(-2px);
+    }
+
+    .sie-card.active {
+      border-color:
+        #111827;
+
+      box-shadow:
+        0 6px 20px
+        rgba(0,0,0,.12);
+    }
+
+    .sie-icon {
+      font-size: 45px;
+    }
+
+    .sie-title {
+
+      font-size: 18px;
+
+      font-weight: bold;
+
+      margin-top: 8px;
+
+    }
+
+    .sie-desc {
+
+      font-size: 12px;
+
+      color: #6b7280;
+
+      margin-top: 5px;
+
+    }
+
+
+    /* =========================
+       ACTIVE SIE
+    ========================= */
+
+    .active-sie {
+
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 15px;
+
+      margin-bottom: 18px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.05);
+
+      text-align: center;
+
+      font-size: 15px;
+
+    }
+
+    .active-sie span {
+
+      font-weight: bold;
+
+    }
+
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+
+      background: white;
+
+      border-radius: 18px;
+
+      padding: 20px;
+
+      margin-bottom: 18px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.06);
+
+    }
+
+    .card-title {
+
+      font-size: 19px;
+
+      font-weight: bold;
+
+      margin:
+        0
+        0
+        18px;
+
+    }
+
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 14px;
+
+    }
+
+    .form-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+    }
+
+    .full {
+
+      grid-column:
+        1 / -1;
+
+    }
+
+    label {
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      margin-bottom: 6px;
+
+    }
+
+    input,
+    select,
+    textarea {
+
+      width: 100%;
+
+      border:
+        1px solid
+        #d1d5db;
+
+      border-radius: 10px;
+
+      padding: 12px;
+
+      font-size: 15px;
+
+      background: white;
+
+      outline: none;
+
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+
+      border-color:
+        #111827;
+
+      box-shadow:
+        0 0 0 2px
+        rgba(17,24,39,.08);
+
+    }
+
+    textarea {
+
+      min-height: 90px;
+
+      resize: vertical;
+
+    }
+
+
+    /* =========================
+       TOTAL
+    ========================= */
+
+    .total-box {
+
+      background:
+        #f3f4f6;
+
+      border-radius: 13px;
+
+      padding: 15px;
+
+    }
+
+    .total-label {
+
+      font-size: 12px;
+
+      color: #6b7280;
+
+    }
+
+    .total-value {
+
+      font-size: 25px;
+
+      font-weight: bold;
+
+      margin-top: 5px;
+
+    }
+
+
+    /* =========================
+       PHOTO
+    ========================= */
+
+    .photo-box {
+
+      border:
+        2px dashed
+        #d1d5db;
+
+      border-radius: 15px;
+
+      padding: 20px;
+
+      text-align: center;
+
+      background:
+        #fafafa;
+
+    }
+
+    .camera-icon {
+
+      font-size: 42px;
+
+      margin-bottom: 8px;
+
+    }
+
+    .photo-help {
+
+      font-size: 12px;
+
+      color: #6b7280;
+
+      margin-top: 8px;
+
+    }
+
+    .preview {
+
+      display: none;
+
+      width: 100%;
+
+      max-height: 280px;
+
+      object-fit: contain;
+
+      margin-top: 15px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid
+        #e5e7eb;
+
+    }
+
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .button-row {
+
+      display: flex;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      margin-top: 18px;
+
+    }
+
+    button {
+
+      border: none;
+
+      border-radius: 11px;
+
+      padding:
+        13px
+        18px;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+    }
+
+    .btn-primary {
+
+      background:
+        #111827;
+
+      color: white;
+
+      flex: 1;
+
+    }
+
+    .btn-secondary {
+
+      background:
+        #e5e7eb;
+
+      color:
+        #111827;
+
+    }
+
+    button:disabled {
+
+      opacity: .5;
+
+      cursor:
+        not-allowed;
+
+    }
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status {
+
+      display: none;
+
+      padding: 13px;
+
+      border-radius: 10px;
+
+      margin-top: 15px;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+    }
+
+    .status.success {
+
+      display: block;
+
+      background:
+        #dcfce7;
+
+      color:
+        #166534;
+
+    }
+
+    .status.error {
+
+      display: block;
+
+      background:
+        #fee2e2;
+
+      color:
+        #991b1b;
+
+    }
+
+
+    /* =========================
+       DASHBOARD
+    ========================= */
+
+    .dashboard {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .stat {
+
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 16px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.05);
+
+    }
+
+    .stat-label {
+
+      font-size: 11px;
+
+      color: #6b7280;
+
+    }
+
+    .stat-value {
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      margin-top: 6px;
+
+    }
+
+
+    /* =========================
+       LOADING
+    ========================= */
+
+    .loading {
+
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(0,0,0,.5);
+
+      z-index: 9999;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+    .loading-box {
+
+      background: white;
+
+      padding: 25px;
+
+      border-radius: 16px;
+
+      text-align: center;
+
+      width: 85%;
+
+      max-width: 320px;
+
+    }
+
+    .spinner {
+
+      width: 40px;
+
+      height: 40px;
+
+      border:
+        4px solid
+        #e5e7eb;
+
+      border-top-color:
+        #111827;
+
+      border-radius: 50%;
+
+      animation:
+        spin 1s linear infinite;
+
+      margin:
+        0 auto
+        12px;
+
+    }
+
+    @keyframes spin {
+
+      to {
+        transform:
+          rotate(360deg);
+      }
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+
+      text-align: center;
+
+      font-size: 11px;
+
+      color: #9ca3af;
+
+      padding: 10px 0 25px;
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:700px) {
+
+      .container {
+
+        padding:
+          12px;
+
+      }
+
+      .menu-grid {
+
+        gap: 10px;
+
+      }
+
+      .sie-card {
+
+        padding:
+          20px
+          10px;
+
+      }
+
+      .sie-icon {
+
+        font-size: 38px;
+
+      }
+
+      .sie-title {
+
+        font-size: 16px;
+
+      }
+
+      .form-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+      .full {
+
+        grid-column:
+          auto;
+
+      }
+
+      .dashboard {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+      .header h1 {
+
+        font-size: 21px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <div class="logo">
+      💰
+    </div>
+
+    <h1>
+      LPJ PEMBELIAN
+    </h1>
+
+    <p>
+      Laporan Pertanggungjawaban Pembelian
+    </p>
+
+  </div>
+
+
+  <div class="container">
+
+
+    <!-- MENU SIE -->
+
+    <div class="menu-grid">
+
+      <div
+        class="sie-card"
+        id="gamesCard"
+        onclick="selectSIE('SIE GAMES')"
+      >
+
+        <div class="sie-icon">
+          🎮
+        </div>
+
+        <div class="sie-title">
+          SIE GAMES
+        </div>
+
+        <div class="sie-desc">
+          Pembelian kebutuhan games
+        </div>
+
+      </div>
+
+
+      <div
+        class="sie-card"
+        id="konsumsiCard"
+        onclick="selectSIE('SIE KONSUMSI')"
+      >
+
+        <div class="sie-icon">
+          🍽️
+        </div>
+
+        <div class="sie-title">
+          SIE KONSUMSI
+        </div>
+
+        <div class="sie-desc">
+          Pembelian kebutuhan konsumsi
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SIE AKTIF -->
+
+    <div class="active-sie">
+
+      SIE yang dipilih:
+
+      <span id="activeSIE">
+        Belum dipilih
+      </span>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+      <div class="stat">
+
+        <div class="stat-label">
+          TRANSAKSI
+        </div>
+
+        <div
+          class="stat-value"
+          id="totalTransaksi"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          TOTAL GAMES
+        </div>
+
+        <div
+          class="stat-value"
+          id="totalGames"
+        >
+          Rp 0
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-label">
+          TOTAL KONSUMSI
+        </div>
+
+        <div
+          class="stat-value"
+          id="totalKonsumsi"
+        >
+          Rp 0
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="card">
+
+      <div class="card-title">
+        📝 Input Pembelian
+      </div>
+
+
+      <div class="form-grid">
+
+
+        <!-- TANGGAL -->
+
+        <div class="form-group">
+
+          <label>
+            Tanggal Pembelian
+          </label>
+
+          <input
+            type="date"
+            id="tanggal"
+          >
+
+        </div>
+
+
+        <!-- NAMA BARANG -->
+
+        <div class="form-group">
+
+          <label>
+            Nama Barang / Product
+          </label>
+
+          <input
+            type="text"
+            id="namaBarang"
+            placeholder="Contoh: Air Mineral"
+          >
+
+        </div>
+
+
+        <!-- QTY -->
+
+        <div class="form-group">
+
+          <label>
+            Qty
+          </label>
+
+          <input
+            type="number"
+            id="qty"
+            min="0"
+            step="0.01"
+            placeholder="0"
+            oninput="calculateTotal()"
+          >
+
+        </div>
+
+
+        <!-- SATUAN -->
+
+        <div class="form-group">
+
+          <label>
+            Satuan
+          </label>
+
+          <select id="satuan">
+
+            <option value="">
+              Pilih Satuan
+            </option>
+
+            <option value="PCS">
+              PCS
+            </option>
+
+            <option value="BOX">
+              BOX
+            </option>
+
+            <option value="PACK">
+              PACK
+            </option>
+
+            <option value="DUS">
+              DUS
+            </option>
+
+            <option value="KG">
+              KG
+            </option>
+
+            <option value="LITER">
+              LITER
+            </option>
+
+            <option value="BOTOL">
+              BOTOL
+            </option>
+
+            <option value="BUAH">
+              BUAH
+            </option>
+
+            <option value="LAINNYA">
+              LAINNYA
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- HARGA -->
+
+        <div class="form-group">
+
+          <label>
+            Harga Satuan
+          </label>
+
+          <input
+            type="number"
+            id="harga"
+            min="0"
+            placeholder="0"
+            oninput="calculateTotal()"
+          >
+
+        </div>
+
+
+        <!-- SUPPLIER -->
+
+        <div class="form-group">
+
+          <label>
+            Supplier / Toko
+          </label>
+
+          <input
+            type="text"
+            id="supplier"
+            placeholder="Nama toko / supplier"
+          >
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="form-group full">
+
+          <div class="total-box">
+
+            <div class="total-label">
+              TOTAL PEMBELIAN
+            </div>
+
+            <div
+              class="total-value"
+              id="totalDisplay"
+            >
+              Rp 0
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- KETERANGAN -->
+
+        <div class="form-group full">
+
+          <label>
+            Keterangan
+          </label>
+
+          <textarea
+            id="keterangan"
+            placeholder="Keterangan pembelian..."
+          ></textarea>
+
+        </div>
+
+
+        <!-- FOTO BON -->
+
+        <div class="form-group full">
+
+          <label>
+            📷 Foto Bon / Struk
+          </label>
+
+          <div class="photo-box">
+
+            <div class="camera-icon">
+              📷
+            </div>
+
+            <input
+              type="file"
+              id="photo"
+              accept="image/*"
+              capture="environment"
+              onchange="previewPhoto(event)"
+            >
+
+            <div class="photo-help">
+
+              Dari HP kamu bisa langsung
+              menggunakan kamera atau memilih
+              foto dari galeri.
+
+            </div>
+
+            <img
+              id="preview"
+              class="preview"
+            >
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- STATUS -->
+
+      <div
+        id="status"
+        class="status"
+      ></div>
+
+
+      <!-- BUTTON -->
+
+      <div class="button-row">
+
+        <button
+          class="btn-primary"
+          id="saveButton"
+          onclick="saveTransaction()"
+        >
+          💾 SIMPAN PEMBELIAN
+        </button>
+
+        <button
+          class="btn-secondary"
+          onclick="resetForm()"
+        >
+          ↻ RESET
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+      LPJ PEMBELIAN V1
+
+    </div>
+
+  </div>
+
+
+  <!-- LOADING -->
+
+  <div
+    class="loading"
+    id="loading"
+  >
+
+    <div class="loading-box">
+
+      <div class="spinner"></div>
+
+      <div id="loadingText">
+        Memproses...
+      </div>
+
+    </div>
+
+  </div>
+
+
+<script>
+
+
+/********************************************************
+ * MASUKKAN URL GOOGLE APPS SCRIPT DI SINI
+ ********************************************************/
+
+const API_URL =
+  'https://script.google.com/macros/s/AKfycbwubpPbWkqQs_vFAcOXudocuYDK0lI05Z5a8laduC9eSxRWD1s8667QSycnL56CMVdtVA/exec';
+
+
+/********************************************************
+ * VARIABLE
+ ********************************************************/
+
+let selectedSIE = '';
+
+
+/********************************************************
+ * INIT
+ ********************************************************/
+
+window.addEventListener(
+  'load',
+  function() {
+
+    setToday();
+
+  }
+);
+
+
+/********************************************************
+ * TANGGAL HARI INI
+ ********************************************************/
+
+function setToday() {
+
+  const now =
+    new Date();
+
+  const year =
+    now.getFullYear();
+
+  const month =
+    String(
+      now.getMonth() + 1
+    ).padStart(
+      2,
+      '0'
+    );
+
+  const day =
+    String(
+      now.getDate()
+    ).padStart(
+      2,
+      '0'
+    );
+
+  document
+    .getElementById(
+      'tanggal'
+    )
+    .value =
+      year +
+      '-' +
+      month +
+      '-' +
+      day;
+
+}
+
+
+/********************************************************
+ * PILIH SIE
+ ********************************************************/
+
+function selectSIE(sie) {
+
+  selectedSIE =
+    sie;
+
+
+  document
+    .getElementById(
+      'activeSIE'
+    )
+    .innerText =
+      sie;
+
+
+  document
+    .getElementById(
+      'gamesCard'
+    )
+    .classList
+    .remove(
+      'active'
+    );
+
+
+  document
+    .getElementById(
+      'konsumsiCard'
+    )
+    .classList
+    .remove(
+      'active'
+    );
+
+
+  if (
+    sie === 'SIE GAMES'
+  ) {
+
+    document
+      .getElementById(
+        'gamesCard'
+      )
+      .classList
+      .add(
+        'active'
+      );
+
+  }
+
+
+  if (
+    sie === 'SIE KONSUMSI'
+  ) {
+
+    document
+      .getElementById(
+        'konsumsiCard'
+      )
+      .classList
+      .add(
+        'active'
+      );
+
+  }
+
+}
+
+
+/********************************************************
+ * HITUNG TOTAL
+ ********************************************************/
+
+function calculateTotal() {
+
+  const qty =
+    Number(
+      document
+        .getElementById(
+          'qty'
+        )
+        .value
+    ) || 0;
+
+
+  const harga =
+    Number(
+      document
+        .getElementById(
+          'harga'
+        )
+        .value
+    ) || 0;
+
+
+  const total =
+    qty *
+    harga;
+
+
+  document
+    .getElementById(
+      'totalDisplay'
+    )
+    .innerText =
+      formatRupiah(
+        total
+      );
+
+}
+
+
+/********************************************************
+ * PREVIEW FOTO
+ ********************************************************/
+
+function previewPhoto(event) {
+
+  const file =
+    event.target.files[0];
+
+
+  if (!file) {
+
+    return;
+
+  }
+
+
+  const preview =
+    document
+      .getElementById(
+        'preview'
+      );
+
+
+  preview.src =
+    URL.createObjectURL(
+      file
+    );
+
+
+  preview.style.display =
+    'block';
+
+}
+
+
+/********************************************************
+ * FILE -> BASE64
+ ********************************************************/
+
+function fileToBase64(
+  file
+) {
+
+  return new Promise(
+    function(
+      resolve,
+      reject
+    ) {
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function() {
+
+          const result =
+            reader.result;
+
+
+          const base64 =
+            result
+              .split(',')[1];
+
+
+          resolve(
+            base64
+          );
+
+        };
+
+
+      reader.onerror =
+        reject;
+
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
+
+}
+
+
+/********************************************************
+ * SIMPAN TRANSAKSI
+ ********************************************************/
+
+async function saveTransaction() {
+
+
+  /*
+   * Validasi API
+   */
+
+  if (
+    API_URL ===
+    'TEMPEL_URL_APPS_SCRIPT_DI_SINI'
+  ) {
+
+    showStatus(
+      'URL Google Apps Script belum ditempel.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * Validasi SIE
+   */
+
+  if (!selectedSIE) {
+
+    showStatus(
+      'Silakan pilih SIE GAMES atau SIE KONSUMSI.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  const tanggal =
+    document
+      .getElementById(
+        'tanggal'
+      )
+      .value;
+
+
+  const namaBarang =
+    document
+      .getElementById(
+        'namaBarang'
+      )
+      .value
+      .trim();
+
+
+  const qty =
+    Number(
+      document
+        .getElementById(
+          'qty'
+        )
+        .value
+    );
+
+
+  const satuan =
+    document
+      .getElementById(
+        'satuan'
+      )
+      .value;
+
+
+  const harga =
+    Number(
+      document
+        .getElementById(
+          'harga'
+        )
+        .value
+    ) || 0;
+
+
+  const supplier =
+    document
+      .getElementById(
+        'supplier'
+      )
+      .value
+      .trim();
+
+
+  const keterangan =
+    document
+      .getElementById(
+        'keterangan'
+      )
+      .value
+      .trim();
+
+
+  const photo =
+    document
+      .getElementById(
+        'photo'
+      )
+      .files[0];
+
+
+  /*
+   * Validasi
+   */
+
+  if (!tanggal) {
+
+    showStatus(
+      'Tanggal belum diisi.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  if (!namaBarang) {
+
+    showStatus(
+      'Nama barang belum diisi.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  if (
+    !qty ||
+    qty <= 0
+  ) {
+
+    showStatus(
+      'Qty harus lebih dari 0.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  if (!photo) {
+
+    showStatus(
+      'Foto bon wajib diupload.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * Batasi foto agar tidak terlalu besar
+   */
+
+  if (
+    photo.size >
+    10 * 1024 * 1024
+  ) {
+
+    showStatus(
+      'Ukuran foto maksimal 10 MB.',
+      'error'
+    );
+
+    return;
+
+  }
+
+
+  try {
+
+
+    showLoading(
+      'Mempersiapkan foto bon...'
+    );
+
+
+    /*
+     * Convert foto
+     */
+
+    const photoBase64 =
+      await fileToBase64(
+        photo
+      );
+
+
+    const payload = {
+
+      action:
+        'saveTransaction',
+
+      tanggal:
+        tanggal,
+
+      sie:
+        selectedSIE,
+
+      namaBarang:
+        namaBarang,
+
+      qty:
+        qty,
+
+      satuan:
+        satuan,
+
+      harga:
+        harga,
+
+      supplier:
+        supplier,
+
+      keterangan:
+        keterangan,
+
+      photoBase64:
+        photoBase64,
+
+      photoType:
+        photo.type
+
+    };
+
+
+    showLoading(
+      'Mengupload foto bon dan menyimpan data...'
+    );
+
+
+    /*
+     * Kirim ke Apps Script
+     */
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+
+          method:
+            'POST',
+
+          headers: {
+
+            'Content-Type':
+              'text/plain;charset=utf-8'
+
+          },
+
+          body:
+            JSON.stringify(
+              payload
+            )
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    hideLoading();
+
+
+    if (
+      !result.success
+    ) {
+
+      throw new Error(
+        result.message ||
+        'Gagal menyimpan transaksi.'
+      );
+
+    }
+
+
+    showStatus(
+      '✅ Pembelian berhasil disimpan. ID: ' +
+      result.id,
+      'success'
+    );
+
+
+    resetForm();
+
+
+  } catch(error) {
+
+
+    hideLoading();
+
+
+    console.error(
+      error
+    );
+
+
+    showStatus(
+      '❌ Gagal menyimpan: ' +
+      error.message,
+      'error'
+    );
+
+  }
+
+}
+
+
+/********************************************************
+ * RESET
+ ********************************************************/
+
+function resetForm() {
+
+  document
+    .getElementById(
+      'namaBarang'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'qty'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'satuan'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'harga'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'supplier'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'keterangan'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'photo'
+    )
+    .value =
+      '';
+
+
+  const preview =
+    document
+      .getElementById(
+        'preview'
+      );
+
+
+  preview.src =
+    '';
+
+
+  preview.style.display =
+    'none';
+
+
+  document
+    .getElementById(
+      'totalDisplay'
+    )
+    .innerText =
+      'Rp 0';
+
+
+  setToday();
+
+}
+
+
+/********************************************************
+ * FORMAT RUPIAH
+ ********************************************************/
+
+function formatRupiah(
+  number
+) {
+
+  return (
+    'Rp ' +
+    Number(
+      number || 0
+    )
+    .toLocaleString(
+      'id-ID'
+    )
+  );
+
+}
+
+
+/********************************************************
+ * STATUS
+ ********************************************************/
+
+function showStatus(
+  message,
+  type
+) {
+
+  const status =
+    document
+      .getElementById(
+        'status'
+      );
+
+
+  status.innerText =
+    message;
+
+
+  status.className =
+    'status ' +
+    type;
+
+
+  setTimeout(
+    function() {
+
+      status.className =
+        'status';
+
+    },
+    7000
+  );
+
+}
+
+
+/********************************************************
+ * LOADING
+ ********************************************************/
+
+function showLoading(
+  text
+) {
+
+  document
+    .getElementById(
+      'loadingText'
+    )
+    .innerText =
+      text;
+
+
+  document
+    .getElementById(
+      'loading'
+    )
+    .style.display =
+      'flex';
+
+}
+
+
+function hideLoading() {
+
+  document
+    .getElementById(
+      'loading'
+    )
+    .style.display =
+      'none';
+
+}
+
+</script>
+
+
+</body>
+
+</html>
